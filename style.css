@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  --line-border-fill: lightskyblue;
+  --line-border-empty: lightgray;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  margin-bottom: 30px;
+  gap: 60px;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  width: 100%;
+  background-color: var(--line-border-empty);
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+}
+
+.progress {
+  width: 0;
+  background-color: var(--line-border-fill);
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: -1;
+  transition: 0.4s ease;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid var(--line-border-empty);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: lightslategray;
+  background-color: white;
+  transition: 0.4s ease;
+}
+
+.step.active {
+  border: 3px solid var(--line-border-fill);
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  width: 80px;
+  background-color: var(--line-border-fill);
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  font-size: 14px;
+}
+
+.button:hover {
+  transform: scale(0.98);
+  transition: 0.4s ease;
+}
+
+.button:disabled {
+  background-color: var(--line-border-empty);
+  cursor: default;
+}
